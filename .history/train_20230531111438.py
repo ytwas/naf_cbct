@@ -37,7 +37,7 @@ class BasicTrainer(Trainer):
     def compute_loss(self, data, global_step, idx_epoch):
         rays = data["rays"].reshape(-1, 8)
         projs = data["projs"].reshape(-1)
-        ret = render(rays, self.net, self.net_fine, **self.conf["render"]) #? the function of render
+        ret = render(rays, self.net, self.net_fine, **self.conf["render"])
         projs_pred = ret["acc"]
 
         loss = {"loss": 0.}
